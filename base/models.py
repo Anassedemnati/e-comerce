@@ -22,7 +22,7 @@ class Produit(models.Model):
     image = models.CharField(max_length=256, null=True)
     marque = models.CharField(max_length=100, null=True)
     descriptionPro = models.TextField(max_length=265, null=True, blank=True)
-    prixPro = models.DecimalField()
+    prixPro = models.DecimalField(max_digits=10, decimal_places=3)
     contiteStock = models.IntegerField()
     categorie = models.ForeignKey(Categorie, null=True, on_delete=models.SET_NULL)
     utilisateur = models.ForeignKey(Utilisateur, null=True, on_delete=models.CASCADE)
@@ -52,9 +52,9 @@ class Commande(models.Model):
         ('Livré', 'Livré'),
     )
     modePaiement = models.CharField(max_length=20, choices=modePaiement)
-    prixTax = models.DecimalField(default=0.0)
-    prixLivraison = models.DecimalField(default=0.0)
-    prixTotal = models.DecimalField()
+    prixTax = models.DecimalField(max_digits=10,decimal_places=3, default=0.0)
+    prixLivraison = models.DecimalField(max_digits=10, decimal_places=3, default=0.0)
+    prixTotal = models.DecimalField(max_digits=10, decimal_places=3)
     dateCom = models.DateField(auto_now_add=True)
     etatCom = models.CharField(max_length=30, choices=etatCom)
     dateLivraison = models.DateField(null=True)
@@ -68,7 +68,7 @@ class ProduitCommande(models.Model):
     qte = models.IntegerField(null=True)
 
 class AdresseLivraison(models.Model):
-    commande= models.OneToOneField(Commande, on_delete=models.CASCADE, primary_key=True)
+    commande= models.OneToOneField(Commande, on_delete=models.CASCADE)
     adresseLiv = models.TextField(max_length=256, null=True,blank=True)
     villeLiv = models.CharField(max_length=200)
     codePostal = models.IntegerField()
