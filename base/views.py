@@ -5,9 +5,9 @@ from django.views import View
 
 class HomeView(View):
     def get(self, request):
-        return render(request, "home.html", {})
+        return render(request, "client/home.html", {})
 
 
 class BoardView(View):
     def get(self, request):
-        return render(request, "board.html", {})
+        return render(request, "client/board.html", {})
