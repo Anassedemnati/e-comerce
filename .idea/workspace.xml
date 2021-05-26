@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="">
+    <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="modification des templates et deplacement dans le Root /">
+      <change afterPath="$PROJECT_DIR$/templates/admin/listComande.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/listProduct.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/listUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/admin/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/admin/mainAdmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/admin/navAdmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/admin/statistique.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/board.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/templates/navbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/master/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/master/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/master/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,6 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -65,8 +63,16 @@
       <workItem from="1621688059201" duration="13098000" />
       <workItem from="1621779821566" duration="10690000" />
       <workItem from="1621977933271" duration="6473000" />
-      <workItem from="1622014501477" duration="700000" />
+      <workItem from="1622014501477" duration="3652000" />
     </task>
+    <task id="LOCAL-00001" summary="modification des templates et deplacement dans le Root /">
+      <created>1622015431098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622015431098</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,5 +89,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modification des templates et deplacement dans le Root /" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification des templates et deplacement dans le Root /" />
   </component>
 </project>
