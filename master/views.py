@@ -20,4 +20,9 @@ class ComandeView(View):
 
 class UtilisateurView(View):
     def get(self, request):
-        return render(request, "admin/listUser.html", {})
+        return render(request, "admin/listUsebr.html", {})
+
+
+class ClientView(View):
+    def get(self, request):
+        return render(request, "admin/listClient.html", {})
