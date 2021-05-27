@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="modification des templates et deplacement dans le Root / + user temp">
+    <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="modification des templates et deplacement dans le Root / + user temp list clie">
       <change afterPath="$PROJECT_DIR$/templates/admin/listClient.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/master/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/urls.py" afterDir="false" />
@@ -63,7 +63,7 @@
       <workItem from="1621977933271" duration="6473000" />
       <workItem from="1622014501477" duration="3710000" />
       <workItem from="1622031247915" duration="4518000" />
-      <workItem from="1622099998480" duration="394000" />
+      <workItem from="1622099998480" duration="917000" />
     </task>
     <task id="LOCAL-00001" summary="modification des templates et deplacement dans le Root /">
       <created>1622015431098</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622018208496</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="modification des templates et deplacement dans le Root / + user temp">
+      <created>1622100400041</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622100400041</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modification des templates et deplacement dans le Root /" />
     <MESSAGE value="modification des templates et deplacement dans le Root / + user temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification des templates et deplacement dans le Root / + user temp" />
+    <MESSAGE value="modification des templates et deplacement dans le Root / + user temp list clie" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification des templates et deplacement dans le Root / + user temp list clie" />
   </component>
 </project>
