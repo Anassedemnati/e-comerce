@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="" />
 =======
     <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="modification des templates et deplacement dans le Root /">
       <change afterPath="$PROJECT_DIR$/templates/admin/listComande.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/admin/listProduct.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/admin/listUser.html" afterDir="false" />
+=======
+    <list default="true" id="6f8f85ac-b6ff-4970-991a-2442832cabb5" name="Default Changelist" comment="modification des templates et deplacement dans le Root / + user temp list clie">
+      <change afterPath="$PROJECT_DIR$/templates/admin/listClient.html" afterDir="false" />
+>>>>>>> 17e55cfbd4f4734544e46148255e8a9adcfa16e9
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/master/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/master/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/master/views.py" afterDir="false" />
@@ -70,7 +75,9 @@
       <workItem from="1621977933271" duration="7023000" />
 =======
       <workItem from="1621977933271" duration="6473000" />
-      <workItem from="1622014501477" duration="3652000" />
+      <workItem from="1622014501477" duration="3710000" />
+      <workItem from="1622031247915" duration="4518000" />
+      <workItem from="1622099998480" duration="917000" />
     </task>
     <task id="LOCAL-00001" summary="modification des templates et deplacement dans le Root /">
       <created>1622015431098</created>
@@ -80,7 +87,21 @@
       <updated>1622015431098</updated>
 >>>>>>> c03ff51966bafc598b2e9ba81ef3bca9f95bea28
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modification des templates et deplacement dans le Root / + user temp">
+      <created>1622018208496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622018208496</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modification des templates et deplacement dans le Root / + user temp">
+      <created>1622100400041</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622100400041</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +121,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modification des templates et deplacement dans le Root /" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification des templates et deplacement dans le Root /" />
+    <MESSAGE value="modification des templates et deplacement dans le Root / + user temp" />
+    <MESSAGE value="modification des templates et deplacement dans le Root / + user temp list clie" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification des templates et deplacement dans le Root / + user temp list clie" />
   </component>
 </project>
