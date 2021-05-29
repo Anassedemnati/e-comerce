@@ -1,5 +1,36 @@
-{% extends 'admin/mainAdmin.html' %}
-{% block title %}users{% endblock %}
-{% block content %}
-    <h1>users</h1>
+{% extends 'admin/mainAdmin.html' %} {% block title %}users{% endblock %}
+{%block content %}
+<br />
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Utilisateur</h5>
+    </div>
+
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>
+            <a class="btn btn-sm btn-info" href="#">Ajouter Utilisateur</a>
+          </th>
+        </tr>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Téléphone</th>
+          <th>Nombre Produit</th>
+          <th></th>
+          <th>Plus</th>
+        </tr>
+        {% for p in products %}
+        <tr>
+          <th>{{ p.name }}</th>
+          <th>{{ p.category }}</th>
+          <th>{{ p.price }}</th>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}
