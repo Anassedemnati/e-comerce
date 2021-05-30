@@ -8,12 +8,12 @@
 
 
 			<p>Etes-vous sûr que vous voulez supprimer "{{client.get_full_name}}"?</p>
+            <img src="{{product.image.url}}" class="img-fluid img-thumbnail" >
 
-
-			<form action="{% url 'deleteProduct' product.id  %}" method="POST">
+			<form action="{% url 'deleteClient' client.id  %}" method="POST">
 
 				{% csrf_token %}
-				<a class="btn btn-warning" href="{% url 'listProduct' %}">Cancel</a>
+				<a class="btn btn-warning" href="{% url 'ClientDetaille' client.id %}">Cancel</a>
 
 				<input class="btn btn-danger" type="submit" name="Confirm" value="Confirm">
 			</form>

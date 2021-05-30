@@ -12,7 +12,11 @@ urlpatterns = [
     path('commande/<str:pk>/delete', views.Comand_delete.as_view(), name='deleteCommande'),
     path('commande/create', views.ComandeView.as_view(), name='CommandeCreate'),
     path('user/', views.UtilisateurView.as_view(), name='listUtilisateur'),
-    path('client/', views.ClientView.as_view(), name='listClient'),
+    path('client/', views.Clientlist.as_view(), name='listClient'),
+    path('client/<str:pk>/Detaille', views.ClientDetaille.as_view(), name='ClientDetaille'),
+    path('client/<str:pk>/edit', views.Clientedit.as_view(), name='editClient'),
+    path('client/<str:pk>/delete', views.Clientdelete.as_view(), name='deleteClient'),
+    path('client/create', views.ClientView.as_view(), name='ClientCreate'),
 
 
 ]

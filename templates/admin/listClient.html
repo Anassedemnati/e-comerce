@@ -11,20 +11,22 @@
     <div class="card card-body">
       <table class="table">
         <tr>
-          <th><a class="btn btn-sm btn-info" href="#">Ajouter Client</a></th>
+          <th><a class="btn btn-sm btn-info" href="{% url 'ClientCreate' %}">Ajouter Client</a></th>
         </tr>
         <tr>
           <th>Nom</th>
           <th>Prenom</th>
-          <th>téléphone</th>
-          <th>nombre commande</th>
+          <th>email</th>
+
           <th>Plus</th>
         </tr>
-        {% for p in products %}
+        {% for cl in clients %}
         <tr>
-          <th>{{ p.name }}</th>
-          <th>{{ p.category }}</th>
-          <th>{{ p.price }}</th>
+          <td>{{ cl.first_name }}</td>
+          <td>{{ cl.last_name }}</td>
+          <td>{{ cl.email }}</td>
+            <td><a class="btn btn-sm btn-success" href="{% url 'ClientDetaille' cl.id %}">détaillé</a></td>
+
         </tr>
         {% endfor %}
       </table>

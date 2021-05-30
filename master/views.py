@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.http import HttpResponse
+
 from .models import *
 from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
@@ -10,7 +10,12 @@ from django.shortcuts import get_list_or_404, get_object_or_404
 class DshbordView(View):
 
     def get(self, request):
-        return render(request, "admin/dashboard.html", {})
+        clients = User.objects.all()
+        totalCom= Commande.objects.count()
+        totalLivre= Commande.objects.filter(etatCom='Livré').count()
+        totalenatent=Commande.objects.filter(etatCom='En attente').count()
+        context = {'clients': clients, 'totalCom': totalCom, 'totalLivre': totalLivre, 'totalenatent': totalenatent}
+        return render(request, "admin/dashboard.html", context)
 
 
 class ProductList(View):
@@ -83,9 +88,12 @@ class UtilisateurView(View):
         return render(request, "admin/listUser.html", {})
 
 
-class ClientView(View):
+class Clientlist(View):
     def get(self, request):
-        return render(request, "admin/listClient.html", {})
+        clients = User.objects.all()
+
+
+        return render(request, "admin/listClient.html", {'clients': clients})
 
 
 class Produc_edit(View):
@@ -111,3 +119,51 @@ class Produc_delete(View):
         product = get_object_or_404(Produit, id=pk)
         product.delete()
         return redirect('listProduct')
+
+
+class ClientDetaille(View):
+    def get(self, request, pk):
+        client = get_object_or_404(User, id=pk)
+        commandes = client.commande_set.all()
+        Totalcom=client.commande_set.count()
+        context={'client': client, 'comandes': commandes, 'Totalcom': Totalcom}
+
+        return render(request, 'admin/ClientDetaille.html', context )
+
+
+class Clientedit(View):
+    def get(self, request, pk):
+        client = get_object_or_404(User, id=pk)
+        form = UserForm(instance=client)
+        return render(request, 'admin/FormClient.html', {'form': form})
+
+    def post(self, request, pk):
+        client = get_object_or_404(User, id=pk)
+        form = UserForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('listClient')
+
+
+
+class Clientdelete(View):
+    def get(self, request, pk):
+        client = get_object_or_404(User, id=pk)
+        return render(request, 'admin/deleteclient.html', {'client': client})
+
+    def post(self, request, pk):
+        client = get_object_or_404(User, id=pk)
+        client.delete()
+        return redirect('listClient')
+
+
+class ClientView(View):
+    def get(self, request):
+        form = UserForm()
+        return render(request, "admin/FormClient.html", {'form': form})
+
+    def post(self, request):
+        form = UserForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect("listClient")

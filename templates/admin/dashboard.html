@@ -10,19 +10,19 @@
 		<h5>CUSTOMERS:</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+
 			<table class="table table-sm">
 				<tr>
 					<th></th>
-					<th>Customer</th>
-					<th>Phone</th>
+					<th>Client</th>
+					<th>Email</th>
 				</tr>
 
-				{% for customer in customers %}
+				{% for cl in clients %}
 					<tr>
-						<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
-						<td>{{customer.name}}</td>
-						<td>{{customer.phone}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'ClientDetaille' cl.id %}">View</a></td>
+						<td>{{cl.get_full_name}}</td>
+						<td>{{cl.email}}</td>
 					</tr>
 				{% endfor %}
 
