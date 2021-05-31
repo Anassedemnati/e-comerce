@@ -10,17 +10,19 @@ from django.shortcuts import get_list_or_404, get_object_or_404
 class DshbordView(View):
 
     def get(self, request):
-        clients = User.objects.all()
-        totalCom= Commande.objects.count()
-        totalLivre= Commande.objects.filter(etatCom='Livré').count()
-        totalenatent=Commande.objects.filter(etatCom='En attente').count()
-        context = {'clients': clients, 'totalCom': totalCom, 'totalLivre': totalLivre, 'totalenatent': totalenatent}
+        commands = Commande.objects.all()
+        clients = User.objects.filter(is_staff=False, is_superuser=False)
+        totalCom = Commande.objects.count()
+        totalLivre = Commande.objects.filter(etatCom='Livré').count()
+        totalenatent = Commande.objects.filter(etatCom='En attente').count()
+        context = {'clients': clients, 'totalCom': totalCom, 'totalLivre': totalLivre, 'totalenatent': totalenatent,
+                   'commands': commands}
         return render(request, "admin/dashboard.html", context)
 
 
 class ProductList(View):
     def get(self, request):
-        products =Produit.objects.all()
+        products = Produit.objects.all()
         context = {'products': products}
         return render(request, "admin/listProduct.html", context)
 
@@ -83,15 +85,15 @@ class Comand_delete(View):
         return redirect('listCommande')
 
 
-class UtilisateurView(View):
+class userList(View):
     def get(self, request):
-        return render(request, "admin/listUser.html", {})
+        sellers = User.objects.filter(is_staff=True)
+        return render(request, "admin/listUser.html", {'sellers': sellers})
 
 
 class Clientlist(View):
     def get(self, request):
-        clients = User.objects.all()
-
+        clients = User.objects.filter(is_staff=False, is_superuser=False)
 
         return render(request, "admin/listClient.html", {'clients': clients})
 
@@ -125,10 +127,10 @@ class ClientDetaille(View):
     def get(self, request, pk):
         client = get_object_or_404(User, id=pk)
         commandes = client.commande_set.all()
-        Totalcom=client.commande_set.count()
-        context={'client': client, 'comandes': commandes, 'Totalcom': Totalcom}
+        Totalcom = client.commande_set.count()
+        context = {'client': client, 'comandes': commandes, 'Totalcom': Totalcom}
 
-        return render(request, 'admin/ClientDetaille.html', context )
+        return render(request, 'admin/ClientDetaille.html', context)
 
 
 class Clientedit(View):
@@ -142,8 +144,10 @@ class Clientedit(View):
         form = UserForm(request.POST, instance=client)
         if form.is_valid():
             form.save()
-            return redirect('listClient')
-
+            if not form.instance.is_staff:
+                return redirect("listClient")
+            else:
+                return redirect("listUtilisateur")
 
 
 class Clientdelete(View):
@@ -166,4 +170,21 @@ class ClientView(View):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return redirect("listClient")
+             #data = form.cleaned_data
+
+            # test before redirection if it is staff or not
+            if not form.instance.is_staff:
+                return redirect("listClient")
+            else:
+                return redirect("listUtilisateur")
+
+
+class userDetaille(View):
+    def get(self, request, pk):
+        seller = get_object_or_404(User, id=pk)
+
+        produits = seller.produit_set.all()
+        TotalProd = seller.produit_set.count()
+        context = {'seller': seller, 'produits': produits, 'TotalProd': TotalProd}
+
+        return render(request, 'admin/userDetaille.html', context)

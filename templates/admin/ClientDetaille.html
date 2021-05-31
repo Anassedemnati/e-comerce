@@ -10,17 +10,17 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Customer:</h5>
+			<h5>Client:</h5>
 			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'editClient' client.id  %}">Update Customer</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'deleteClient' client.id %}">Delete Customer</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'editClient' client.id  %}">Modifier client</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'deleteClient' client.id %}">Supprimer client</a>
 
 		</div>
 	</div>
 
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Contact Information</h5>
+			<h5>Coordonnées</h5>
 			<hr>
 			<p>Nom complete: {{ client.get_full_name }}</p>
 			<p>Email:  {{ client.email }}</p>
@@ -29,7 +29,7 @@
 
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Total Orders</h5>
+			<h5>Total des commandes</h5>
 			<hr>
 			<h1 style="text-align: center;padding: 10px"> {{ Totalcom }}</h1>
 		</div>
@@ -43,7 +43,7 @@
 		<div class="card card-body">
 			<form method="get">
 
-		    <button class="btn btn-primary" type="submit">Search</button>
+		    <button class="btn btn-primary" type="submit">Rechercher</button>
 		  </form>
 		</div>
 	</div>
