@@ -38,10 +38,9 @@ class Produit(models.Model):
     categorie = models.ForeignKey(
         Categorie, null=True, on_delete=models.SET_NULL)
     utilisateur = models.ForeignKey(User, on_delete=models.CASCADE)
+
     def __str__(self):
-        return self.nomPro
-
-
+        return str(self.id) + "-" + self.nomPro
 
 
 class Game(models.Model):
@@ -77,13 +76,16 @@ class Commande(models.Model):
     produit = models.ManyToManyField(Produit, through='ProduitCommande')
 
     def __str__(self):
-        return str(self.id) + "_" + str(self.utilisateur_id)
+        return str(self.dateCom)
 
 
 class ProduitCommande(models.Model):
     commande = models.ForeignKey(Commande, on_delete=models.CASCADE)
     produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
     qte = models.IntegerField(null=True)
+
+    def __str__(self):
+        return str(self.commande.id) + "-" + self.produit.nomPro
 
 
 class AdresseLivraison(models.Model):
@@ -94,4 +96,4 @@ class AdresseLivraison(models.Model):
     payeLiv = models.CharField(max_length=200)
 
     def __str__(self):
-        return str(self.commande_id)+"_"+self.villeLiv+"_"+self.payeLiv
+        return str(self.commande_id) + "_" + self.villeLiv + "_" + self.payeLiv

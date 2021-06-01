@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-
+from .filters import *
 from .models import *
 from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
@@ -22,8 +22,11 @@ class DshbordView(View):
 
 class ProductList(View):
     def get(self, request):
+
         products = Produit.objects.all()
-        context = {'products': products}
+        prodFilter = ProduitFilter(request.GET, queryset=products)
+        products = prodFilter.qs
+        context = {'products': products, 'prodFilter': prodFilter}
         return render(request, "admin/listProduct.html", context)
 
 
