@@ -4,9 +4,13 @@ from .filters import *
 from .models import *
 from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+
 class DshbordView(View):
 
     def get(self, request):
@@ -22,7 +26,6 @@ class DshbordView(View):
 
 class ProductList(View):
     def get(self, request):
-
         products = Produit.objects.all()
         prodFilter = ProduitFilter(request.GET, queryset=products)
         products = prodFilter.qs
@@ -173,7 +176,7 @@ class ClientView(View):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-             #data = form.cleaned_data
+            # data = form.cleaned_data
 
             # test before redirection if it is staff or not
             if not form.instance.is_staff:
@@ -191,3 +194,28 @@ class userDetaille(View):
         context = {'seller': seller, 'produits': produits, 'TotalProd': TotalProd}
 
         return render(request, 'admin/userDetaille.html', context)
+
+
+class loginPage(View):
+    def get(self, request):
+
+          context = {}
+          return render(request, 'admin/login.html')
+
+    def post(self, request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, password=password, username=username)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+        else:
+            messages.info(request, "nom d'utilisateur ou mot de passe incorrect")
+            return redirect('loginPage')
+
+
+
+
+def logoutUSER(request):
+    logout(request)
+    return redirect('loginPage')

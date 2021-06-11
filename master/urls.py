@@ -1,26 +1,31 @@
 from django.urls import path
 from . import views
+from django.contrib.auth.decorators import login_required
 urlpatterns = [
 
-    path('', views.DshbordView.as_view(), name='dashboard'),
-    path('produit/', views.ProductList.as_view(), name='listProduct'),
-    path('produit/create', views.ProducView.as_view(), name='ProductCreate'),
-    path('produit/<str:pk>/edit', views.Produc_edit.as_view(), name='editProduct'),
-    path('produit/<str:pk>/delete', views.Produc_delete.as_view(), name='deleteProduct'),
-    path('commande/', views.ComandeList.as_view(), name='listCommande'),
-    path('commande/<str:pk>/edit', views.Comand_edit.as_view(), name='editCommande'),
-    path('commande/<str:pk>/delete', views.Comand_delete.as_view(), name='deleteCommande'),
-    path('commande/create', views.ComandeView.as_view(), name='CommandeCreate'),
-    path('client/', views.Clientlist.as_view(), name='listClient'),
-    path('client/<str:pk>/Detaille', views.ClientDetaille.as_view(), name='ClientDetaille'),
-    path('client/<str:pk>/edit', views.Clientedit.as_view(), name='editClient'),
-    path('client/<str:pk>/delete', views.Clientdelete.as_view(), name='deleteClient'),
-    path('client/create', views.ClientView.as_view(), name='ClientCreate'),
-    path('user/', views.userList.as_view(), name='listUtilisateur'),
-    path('user/<str:pk>/Detaille', views.userDetaille.as_view(), name='userDetaille'),
-    path('user/<str:pk>/edit', views.Clientedit.as_view(), name='edituser'),
-    path('user/<str:pk>/delete', views.Clientdelete.as_view(), name='deleteuser'),
-    path('user/create', views.ClientView.as_view(), name='userCreate'),
+    path('', login_required(views.DshbordView.as_view(), login_url='loginPage'), name='dashboard'),
+    path('produit/', login_required(views.ProductList.as_view(), login_url='loginPage'), name='listProduct'),
+    path('produit/create', login_required(views.ProducView.as_view(), login_url='loginPage'), name='ProductCreate'),
+    path('produit/<str:pk>/edit', login_required(views.Produc_edit.as_view(), login_url='loginPage'), name='editProduct'),
+    path('produit/<str:pk>/delete', login_required(views.Produc_delete.as_view(), login_url='loginPage'), name='deleteProduct'),
+    path('commande/', login_required(views.ComandeList.as_view(), login_url='loginPage'), name='listCommande'),
+    path('commande/<str:pk>/edit', login_required(views.Comand_edit.as_view(), login_url='loginPage'), name='editCommande'),
+    path('commande/<str:pk>/delete', login_required(views.Comand_delete.as_view(), login_url='loginPage'), name='deleteCommande'),
+    path('commande/create', login_required(views.ComandeView.as_view(), login_url='loginPage'), name='CommandeCreate'),
+    path('client/', login_required(views.Clientlist.as_view(), login_url='loginPage'), name='listClient'),
+    path('client/<str:pk>/Detaille', login_required(views.ClientDetaille.as_view(), login_url='loginPage'), name='ClientDetaille'),
+    path('client/<str:pk>/edit', login_required(views.Clientedit.as_view(), login_url='loginPage'), name='editClient'),
+    path('client/<str:pk>/delete', login_required(views.Clientdelete.as_view(), login_url='loginPage'), name='deleteClient'),
+    path('client/create', login_required(views.ClientView.as_view(), login_url='loginPage'), name='ClientCreate'),
+    path('user/', login_required(views.userList.as_view(), login_url='loginPage'), name='listUtilisateur'),
+    path('user/<str:pk>/Detaille', login_required(views.userDetaille.as_view(), login_url='loginPage'), name='userDetaille'),
+    path('user/<str:pk>/edit', login_required(views.Clientedit.as_view(), login_url='loginPage'), name='edituser'),
+    path('user/<str:pk>/delete', login_required(views.Clientdelete.as_view(), login_url='loginPage'), name='deleteuser'),
+    path('user/create', login_required(views.ClientView.as_view(), login_url='loginPage'), name='userCreate'),
+    path('login', views.loginPage.as_view(), name='loginPage'),
+    path('logout', views.logoutUSER, name='logout'),
+
+
 
 
 ]
